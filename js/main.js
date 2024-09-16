@@ -1,6 +1,41 @@
 (function ($) {
     "use strict";
+    function fetchAndDisplayPrayerTimes() {
+        const prayerTimesContainer = document.querySelector('.col-lg-7.px-5.text-start');
+        if (!prayerTimesContainer) return;
 
+        fetch('http://api.aladhan.com/v1/timingsByCity?city=Edmonton&country=Canada&method=2')
+            .then(response => response.json())
+            .then(data => {
+                const timings = data.data.timings;
+                const prayerTimesHTML = `
+                    <div class="h-100 d-inline-flex align-items-center me-4">
+                        <small class="far fa-clock me-2"></small>
+                        <small>Fajr: ${timings.Fajr}</small>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center me-4">
+                        <small class="far fa-clock me-2"></small>
+                        <small>Dhuhr: ${timings.Dhuhr}</small>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center me-4">
+                        <small class="far fa-clock me-2"></small>
+                        <small>Asr: ${timings.Asr}</small>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center me-4">
+                        <small class="far fa-clock me-2"></small>
+                        <small>Maghrib: ${timings.Maghrib}</small>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center me-4">
+                        <small class="far fa-clock me-2"></small>
+                        <small>Isha: ${timings.Isha}</small>
+                    </div>
+                `;
+                prayerTimesContainer.innerHTML = prayerTimesHTML;
+            })
+            .catch(error => console.error('Error fetching prayer times:', error));
+    }
+
+    fetchAndDisplayPrayerTimes();
     // Spinner
     var spinner = function () {
         setTimeout(function () {
