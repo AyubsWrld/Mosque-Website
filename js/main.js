@@ -72,15 +72,15 @@
                     const time12h = convertTo12HourFormat(timings[prayer]);
                     cardsHTML += `
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="${0.1 * (index + 1)}s">
-                            <div class="service-item rounded h-100 p-5">
-                                <div class="d-flex align-items-center ms-n5 mb-4">
-                                    <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                                        <img class="img-fluid" src="img/icon/icon-10-light.png" alt="" />
-                                    </div>
-                                    <h4 class="mb-0">${prayer}</h4>
-                                </div>
-                                <p class="mb-4">Time: ${time12h}</p>
-                            </div>
+                          <div class="service-item rounded h-100 p-5">
+                              <div class="d-flex flex-column align-items-center ms-n5 mb-4">
+                                  <div class="service-icon flex-shrink-0 bg-primary rounded mb-4">
+                                      <img class="img-fluid" src="img/icon/white.png" alt="" />
+                                  </div>
+                                  <h4 class="mb-0">${prayer}</h4>
+                                  <h4 class="mb-0 text-muted" style="opacity: 0.7;">${time12h}</h4>
+                              </div>
+                          </div>
                         </div>
                     `;
                 });
