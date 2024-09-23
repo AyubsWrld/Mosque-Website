@@ -57,6 +57,28 @@
     });
 
     // Prayer Times
+
+    function iqamah(time, n) {
+        let [hours, minutes] = time.split(':').map(Number);
+        minutes += n; 
+
+        while (minutes >= 60) {
+            minutes -= 60;
+            hours += 1;
+        }
+
+        const period = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12; 
+
+        return `${hours}:${minutes.toString().padStart(2, '0')} ${period}`;
+    }
+    const imageMap = {
+        "Fajr": "img/icon/fajr.png",
+        "Dhuhr": "img/icon/dhuhr.png",
+        "Asr": "img/icon/asr.png",
+        "Maghrib": "img/icon/maghreb.png",
+        "Isha": "img/icon/isha.png"
+    };
     function fetchAndDisplayPrayerTimes() {
         const prayerTimesContainer = document.getElementById('prayer-times-container');
         if (!prayerTimesContainer) return;
@@ -70,15 +92,17 @@
                 let cardsHTML = '';
                 prayerNames.forEach((prayer, index) => {
                     const time12h = convertTo12HourFormat(timings[prayer]);
+                    const militarytime = timings[prayer];
                     cardsHTML += `
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="${0.1 * (index + 1)}s">
                           <div class="service-item rounded h-100 p-5">
                               <div class="d-flex flex-column align-items-center ms-n5 mb-4">
                                   <div class="service-icon flex-shrink-0 bg-primary rounded mb-4">
-                                      <img class="img-fluid" src="img/icon/white.png" alt="" />
+                                      <img class="img-fluid" src=${imageMap[prayer]} alt="" />
                                   </div>
                                   <h4 class="mb-0">${prayer}</h4>
-                                  <h4 class="mb-0 text-muted" style="opacity: 0.7;">${time12h}</h4>
+                                  <h4 class="mb-0 text-muted" style="opacity: 0.7;">Adhan: ${time12h}</h4>
+                                  <h4 class="mb-0 text-muted" style="opacity: 0.7;">Iqamah: ${prayer === "Maghrib" ? iqamah(militarytime , 5) : iqamah(militarytime , 10)}</h4>
                               </div>
                           </div>
                         </div>
