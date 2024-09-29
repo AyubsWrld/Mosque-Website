@@ -81,7 +81,7 @@
     };
     function fetchAndDisplayPrayerTimes() {
         const prayerTimesContainer = document.getElementById('prayer-times-container');
-        if (!prayerTimesContainer) return;
+        const topBarPrayerTimes = document.getElementById('top-bar-prayer-times');
 
         fetch('http://api.aladhan.com/v1/timingsByCity?city=Edmonton&country=Canada&method=2')
             .then(response => response.json())
@@ -90,6 +90,7 @@
                 const prayerNames = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
                 
                 let cardsHTML = '';
+                let topBarHTML = '';
                 prayerNames.forEach((prayer, index) => {
                     const time12h = convertTo12HourFormat(timings[prayer]);
                     const militarytime = timings[prayer];
@@ -107,16 +108,28 @@
                           </div>
                         </div>
                     `;
+                    topBarHTML += `<small class="me-3">${prayer}: ${time12h}</small>`;
                 });
                 
-                prayerTimesContainer.innerHTML = cardsHTML;
+                if (prayerTimesContainer) {
+                    prayerTimesContainer.innerHTML = cardsHTML;
+                }
+                
+                if (topBarPrayerTimes) {
+                    topBarPrayerTimes.innerHTML = topBarHTML;
+                }
 
                 // Reinitialize WOW.js for new elements
                 new WOW().init();
             })
             .catch(error => {
                 console.error('Error fetching prayer times:', error);
-                prayerTimesContainer.innerHTML = '<div class="col-12"><p>Unable to load prayer times. Please try again later.</p></div>';
+                if (prayerTimesContainer) {
+                    prayerTimesContainer.innerHTML = '<div class="col-12"><p>Unable to load prayer times. Please try again later.</p></div>';
+                }
+                if (topBarPrayerTimes) {
+                    topBarPrayerTimes.innerHTML = '<small>Prayer times unavailable</small>';
+                }
             });
     }
 
