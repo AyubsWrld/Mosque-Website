@@ -55,12 +55,14 @@
     <style>
       /* Modal styling */
       .custom-modal .modal-content {
-        border: 2px solid #007bff; /* Blue outline */
+        border: 6px solid #007bff; /* Blue outline */
         border-radius: 10px;
       }
   
       .custom-modal img {
-        max-width: 100%;
+        width: 100%;
+        height: 100%; /* Limits the height to 300px */
+        object-fit: contain; 
         border-radius: 8px;
       }
     </style>
@@ -224,35 +226,29 @@
                           data-bs-toggle="modal" 
                           data-bs-target="#dynamicModal" 
                           data-title="Family Counselling" 
-                          data-image="https://via.placeholder.com/800x400" 
-                          data-text="Our family counselling services are designed to address conflicts, offer practical solutions, and foster stronger bonds within families.">
+                          data-image="img/fam.webp" 
+                          data-text="Aisha reported: The Messenger of Allah, peace and blessings be upon him, said, “The bond of family is suspended from the Throne, and it says: Whoever upholds me, Allah will uphold him. Whoever severs me, Allah will sever him. (Ṣaḥīḥ al-Bukhārī 5989, Ṣaḥīḥ Muslim 2555)">
                           Read More
                   </a>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item rounded h-100 p-5">
                   <div class="d-flex align-items-center ms-n5 mb-4">
-                    <div
-                      class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
-                    >
-                      <img
-                        class="img-fluid"
-                        src="img/icon/karate.png"
-                        alt=""
-                      />
+                    <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
+                      <img class="img-fluid" src="img/icon/icon-10-light.png" alt="Icon" />
                     </div>
-                    <h4 class="mb-0">Mixed Martial Arts (COMING SOON)</h4>
+                    <h4 class="mb-0">Mixed Martial Arts (Coming Soon)</h4>
                   </div>
                   <p class="mb-4">
-                    Our mosque is excited to announce plans to start a Mixed Martial Arts (MMA) academy at the Sahaba Youth Centre. This initiative aims to provide youth with an opportunity to develop discipline, fitness, and self-defense skills in a positive environment.
-                  </p>
-                  <a class="btn btn-light px-3" 
+                    Our mosque is excited to announce plans to start a Mixed Martial Arts (MMA) academy at the Sahaba Youth Centre. This initiative aims to provide youth with an opportunity to develop discipline, fitness, and self-defense skills in a positive environment.                  </p>
+                    <a class="btn btn-light px-3" 
                           data-bs-toggle="modal" 
                           data-bs-target="#dynamicModal" 
                           data-title="Family Counselling" 
-                          data-image="https://via.placeholder.com/800x400" 
-                          data-text="Our family counselling services are designed to address conflicts, offer practical solutions, and foster stronger bonds within families.">
+                          data-image="img/karate.webp" 
+                          data-text="In Islam, physical strength and capability, especially through martial arts, are highly valued as they foster discipline, self-defense, and the ability to protect oneself, family, and community, aligning with the prophetic teaching, “The strong believer is better and more beloved to Allah than the weak believer” (Sahih Muslim). FURTHER DETAILS TBD">
+                         
                           Read More
                   </a>
                 </div>
