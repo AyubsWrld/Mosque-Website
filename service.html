@@ -6,8 +6,13 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
+    <title>Dynamic Modal Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+  
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJ0Z3ZET81"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -46,6 +51,19 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+
+    <style>
+      /* Modal styling */
+      .custom-modal .modal-content {
+        border: 2px solid #007bff; /* Blue outline */
+        border-radius: 10px;
+      }
+  
+      .custom-modal img {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+    </style>
   </head>
 
   <body>
@@ -138,6 +156,47 @@
     </div>
     <!-- Page Header End -->
 
+
+<!-- Reusable Modal Structure -->
+<div class="modal fade custom-modal" id="dynamicModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Modal Image">
+        <p id="modalText" class="mt-3"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // JavaScript to update the modal content dynamically
+  const dynamicModal = document.getElementById('dynamicModal');
+  dynamicModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget; // Button that triggered the modal
+    const title = button.getAttribute('data-title'); 
+    const image = button.getAttribute('data-image'); 
+    const text = button.getAttribute('data-text');
+
+    // Update the modal content
+    const modalTitle = dynamicModal.querySelector('#modalTitle');
+    const modalImage = dynamicModal.querySelector('#modalImage');
+    const modalText = dynamicModal.querySelector('#modalText');
+
+    modalTitle.textContent = title;
+    modalImage.src = image;
+    modalText.textContent = text;
+  });
+</script>
+
+
     <!-- Service Start -->
     <div class="container-xxl py-5">
       <div class="container">
@@ -153,22 +212,22 @@
               <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item rounded h-100 p-5">
                   <div class="d-flex align-items-center ms-n5 mb-4">
-                    <div
-                      class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
-                    >
-                      <img
-                        class="img-fluid"
-                        src="img/icon/icon-10-light.png"
-                        alt=""
-                      />
+                    <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
+                      <img class="img-fluid" src="img/icon/icon-10-light.png" alt="Icon" />
                     </div>
                     <h4 class="mb-0">Family Counselling</h4>
                   </div>
                   <p class="mb-4">
                     Our mosque offers family counseling services to support and strengthen relationships within our community, providing guidance and care for those in need.
-
                   </p>
-                  <a class="btn btn-light px-3" href="">Read More</a>
+                    <a class="btn btn-light px-3" 
+                          data-bs-toggle="modal" 
+                          data-bs-target="#dynamicModal" 
+                          data-title="Family Counselling" 
+                          data-image="https://via.placeholder.com/800x400" 
+                          data-text="Our family counselling services are designed to address conflicts, offer practical solutions, and foster stronger bonds within families.">
+                          Read More
+                  </a>
                 </div>
               </div>
               <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -188,7 +247,14 @@
                   <p class="mb-4">
                     Our mosque is excited to announce plans to start a Mixed Martial Arts (MMA) academy at the Sahaba Youth Centre. This initiative aims to provide youth with an opportunity to develop discipline, fitness, and self-defense skills in a positive environment.
                   </p>
-                  <a class="btn btn-light px-3" href="">Read More</a>
+                  <a class="btn btn-light px-3" 
+                          data-bs-toggle="modal" 
+                          data-bs-target="#dynamicModal" 
+                          data-title="Family Counselling" 
+                          data-image="https://via.placeholder.com/800x400" 
+                          data-text="Our family counselling services are designed to address conflicts, offer practical solutions, and foster stronger bonds within families.">
+                          Read More
+                  </a>
                 </div>
               </div>
               <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
