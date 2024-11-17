@@ -175,10 +175,28 @@
   </div>
 </div>
 
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  // JavaScript to update the modal content dynamically
+  const dynamicModal = document.getElementById('dynamicModal');
+  dynamicModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget; // Button that triggered the modal
+    const title = button.getAttribute('data-title'); 
+    const image = button.getAttribute('data-image'); 
+    const text = button.getAttribute('data-text');
 
+    // Update the modal content
+    const modalTitle = dynamicModal.querySelector('#modalTitle');
+    const modalImage = dynamicModal.querySelector('#modalImage');
+    const modalText = dynamicModal.querySelector('#modalText');
 
-
+    modalTitle.textContent = title;
+    modalImage.src = image;
+    modalText.textContent = text;
+  });
+</script>
 
 
     <!-- Service Start -->
@@ -189,154 +207,133 @@
             Join us in our events and services 
           </h1>
         </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item rounded h-100 p-5">
+              <div class="d-flex align-items-center ms-n5 mb-4">
+                <div
+                  class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
+                >
+                  <img
+                    class="img-fluid"
+                    src="img/icon/icon-10-light.png"
+                    alt=""
+                  />
+                </div>
+                <h4 class="mb-0">Family Counselling</h4>
+              </div>
+              <p class="mb-4">
+                Our mosque offers family counseling services to support and strengthen relationships within our community, providing guidance and care for those in need.
+              </p>
+              <a class="btn btn-light px-3" href="">Read More</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item rounded h-100 p-5">
+              <div class="d-flex align-items-center ms-n5 mb-4">
+                <div
+                  class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
+                >
+                  <img
+                    class="img-fluid"
+                    src="img/icon/icon-01-light.png"
+                    alt=""
+                  />
+                </div>
+                <h4 class="mb-0">Funeral Services</h4>
+              </div>
+              <p class="mb-4">
+                We are here to support our community by offering comprehensive funeral services to honor your loved ones. 
+                Our compassionate team is dedicated to providing guidance and assistance during this difficult time, ensuring a respectful and dignified farewell.
+              </p>
+              <a class="btn btn-light px-3" href="">Read More</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-item rounded h-100 p-5">
+              <div class="d-flex align-items-center ms-n5 mb-4">
+                <div
+                  class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
+                >
+                  <img
+                    class="img-fluid"
+                    src="img/icon/rings.png"
+                    alt=""
+                  />
+                </div>
+                <h4 class="mb-0">Marriage Servies</h4>
+              </div>
+              <p class="mb-4">
+                Our mosque provides wedding and nikkah services, helping couples celebrate their special day in accordance with Islamic traditions and values.
+              </p>
+              <a class="btn btn-light px-3" href="">Read More</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item rounded h-100 p-5">
+              <div class="d-flex align-items-center ms-n5 mb-4">
+                <div
+                  class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
+                >
+                  <img
+                    class="img-fluid"
+                    src="img/icon/quran.png"
+                    alt=""
+                  />
+                </div>
+                <h4 class="mb-0">Quran Programs</h4>
+              </div>
+              <p class="mb-4">
+                Our mosque offers Quran programs for both youth and adults, providing opportunities for everyone to deepen their understanding and connection to the Holy Quran.
+              </p>
+              <a class="btn btn-light px-3" href="">Read More</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item rounded h-100 p-5">
+              <div class="d-flex align-items-center ms-n5 mb-4">
+                <div
+                  class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
+                >
+                  <img
+                    class="img-fluid"
+                    src="img/icon/arabic.png"
+                    alt=""
+                  />
+                </div>
+                <h4 class="mb-0">Arabic Programs</h4>
+              </div>
+              <p class="mb-4">
+                We offer Arabic classes at the Sahaba Youth Centre,
+                 providing an opportunity for community members of all ages to learn and connect with the language of our Deen.
+              </p>
+              <a class="btn btn-light px-3" href="">Read More</a>
+            </div>
+          </div>
 
-        <div class="container-xxl py-5">
-          <div class="container">
-            <div class="row g-4 justify-content-center">
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item rounded h-100 p-5">
-                  <div class="d-flex align-items-center ms-n5 mb-4">
-                    <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                      <img class="img-fluid" src="img/icon/icon-10-light.png" alt="Icon" />
-                    </div>
-                    <h4 class="mb-0">Family Counselling</h4>
-                  </div>
-                  <p class="mb-4">
-                    Our mosque offers family counseling services to support and strengthen relationships within our community, providing guidance and care for those in need.
-                  </p>
-                    <a class="btn btn-light px-3" 
-                          data-bs-toggle="modal" 
-                          data-bs-target="#dynamicModal" 
-                          data-title="Family Counselling" 
-                          data-image="img/fam.webp" 
-                          data-text="Aisha reported: The Messenger of Allah, peace and blessings be upon him, said, “The bond of family is suspended from the Throne, and it says: Whoever upholds me, Allah will uphold him. Whoever severs me, Allah will sever him. (Ṣaḥīḥ al-Bukhārī 5989, Ṣaḥīḥ Muslim 2555)">
-                          Read More
-                  </a>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-item rounded h-100 p-5">
+              <div class="d-flex align-items-center ms-n5 mb-4">
+                <div
+                  class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
+                >
+                  <img
+                    class="img-fluid"
+                    src="img/icon/school.png"
+                    alt=""
+                  />
                 </div>
+                <h4 class="mb-0">School Tutoring </h4>
               </div>
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item rounded h-100 p-5">
-                  <div class="d-flex align-items-center ms-n5 mb-4">
-                    <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                      <img class="img-fluid" src="img/icon/icon-10-light.png" alt="Icon" />
-                    </div>
-                    <h4 class="mb-0">Mixed Martial Arts (Coming Soon)</h4>
-                  </div>
-                  <p class="mb-4">
-                    Our mosque is excited to announce plans to start a Mixed Martial Arts (MMA) academy at the Sahaba Youth Centre. This initiative aims to provide youth with an opportunity to develop discipline, fitness, and self-defense skills in a positive environment.                  </p>
-                    <a class="btn btn-light px-3" 
-                          data-bs-toggle="modal" 
-                          data-bs-target="#dynamicModal" 
-                          data-title="Mixed Martial Arts" 
-                          data-image="img/karate.webp" 
-                          data-text="In Islam, physical strength and capability, especially through martial arts, are highly valued as they foster discipline, self-defense, and the ability to protect oneself, family, and community, aligning with the prophetic teaching, “The strong believer is better and more beloved to Allah than the weak believer” (Sahih Muslim). FURTHER DETAILS TBD">
-                         
-                          Read More
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item rounded h-100 p-5">
-                  <div class="d-flex align-items-center ms-n5 mb-4">
-                    <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                      <img class="img-fluid" src="img/icon/rings.png" alt="Icon" />
-                    </div>
-                    <h4 class="mb-0">Marriage Services</h4>
-                  </div>
-                  <p class="mb-4">
-                    Our mosque provides wedding and nikkah services, helping couples celebrate their special day in accordance with Islamic traditions and values.                  </p>
-                    <a class="btn btn-light px-3" 
-                      data-bs-toggle="modal" 
-                      data-bs-target="#dynamicModal" 
-                      data-title="Marriage Services" 
-                      data-image="img/marriage.webp" 
-                      data-text='
-                          <p><strong>Coordinator(s):</strong> Any Imams of Masjid</p>
-                          <p><strong>Imam(s):</strong> Contact Info: 780-243-8811</p>
-                          <p><strong>Price Details:</strong> $400</p>
-                          <p><strong>Brief Description:</strong> The Islamic Marriage Services at our Masjid provide a comprehensive and faith-based approach to conducting Nikah ceremonies. Led by experienced Imams, the service ensures that all aspects align with Islamic principles, offering guidance and support to couples on their special day.Services include a consultation with the Imam, a personalized Nikah ceremony, and issuance of a marriage certificate.
-                          </p>'>
-                      Read More
-                    </a>
-
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item rounded h-100 p-5">
-                  <div class="d-flex align-items-center ms-n5 mb-4">
-                    <div class="service-icon flex-shrink-0 bg-primary rounded-end me-4">
-                      <img class="img-fluid" src="img/icon/quran.png" alt="Icon" />
-                    </div>
-                    <h4 class="mb-0">Quran Programs</h4>
-                  </div>
-                  <p class="mb-4">
-                    Our mosque offers Quran programs for both youth and adults, providing opportunities for everyone to deepen their understanding and connection to the Holy Quran.
-                    <a class="btn btn-light px-3" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#dynamicModal" 
-                    data-title="Advanced Quranic Memorization Program" 
-                    data-image="img/Quran.webp" 
-                    data-text='
-                      <p><strong>Teacher(s):</strong> Sheikh Muhammed Abdul Mumin (Tarteel Institute)</p>
-                      <p><strong>Qualifications:</strong> High-Level Ijaza on all modes of recitation</p>
-                      <p><s Faruq - Mon & Thur - Asr - Isha)<br>
-                        SYC - Tuesday After Asr and Saturday 10AM - 1PM</p>
-                      </p>
-                      <p><strong>Level Specifications:</strong> Intermediate, Advanced</p>
-                      <p><strong>Length of Program:</strong> All year</p>
-                      <p><strong>Brief Description:</strong> 
-                        This one-on-one program with Sheikh Muhammad Abdul Mumin at Tarteel Institute is focused on advanced Quranic memorization. The program offers individualized guidance, tailored to help students achieve high-level mastery and memorization accuracy, emphasizing proper tajweed, retention techniques, and personalized feedback. Ideal for students seeking to deepen their commitment and proficiency in Quranic recitation and memorization.
-                      </p>'>
-                      Read More
-                    </a>
-
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item rounded h-100 p-5">
-                  <div class="d-flex align-items-center ms-n5 mb-4">
-                    <div
-                      class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
-                    >
-                      <img
-                        class="img-fluid"
-                        src="img/icon/arabic.png"
-                        alt=""
-                      />
-                    </div>
-                    <h4 class="mb-0">Arabic Programs</h4>
-                  </div>
-                  <p class="mb-4">
-                    We offer Arabic classes at the Sahaba Youth Centre,
-                     providing an opportunity for community members of all ages to learn and connect with the language of our Deen.
-                  </p>
-                  <a class="btn btn-light px-3" href="">Read More</a>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item rounded h-100 p-5">
-                  <div class="d-flex align-items-center ms-n5 mb-4">
-                    <div
-                      class="service-icon flex-shrink-0 bg-primary rounded-end me-4"
-                    >
-                      <img
-                        class="img-fluid"
-                        src="img/icon/school.png"
-                        alt=""
-                      />
-                    </div>
-                    <h4 class="mb-0">School Tutoring </h4>
-                  </div>
-                  <p class="mb-4">
-                    We also offer school tutoring services at the Sahaba Youth Centre, with experienced teachers providing personalized support to help students excel in their studies.
-                  </p>
-                  <a class="btn btn-light px-3" href="">Read More</a>
-                </div>
-              </div>
+              <p class="mb-4">
+                We also offer school tutoring services at the Sahaba Youth Centre, with experienced teachers providing personalized support to help students excel in their studies.
+              </p>
+              <a class="btn btn-light px-3" href="">Read More</a>
             </div>
           </div>
         </div>
+      </div>
+    </div>
     <!-- Cards Start-->
         <!-- <div class="row g-4 justify-content-center"> -->
         <!--   <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s"> -->
@@ -552,29 +549,5 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
-    <!-- Bootstrap JS and dependencies -->
-
-<script>
-  // JavaScript to update the modal content dynamically
-  const dynamicModal = document.getElementById('dynamicModal');
-  dynamicModal.addEventListener('show.bs.modal', function (event) {
-    const button = event.relatedTarget; // Button that triggered the modal
-    const title = button.getAttribute('data-title'); 
-    const image = button.getAttribute('data-image'); 
-    const text = button.getAttribute('data-text');
-
-    // Update the modal content
-    const modalTitle = dynamicModal.querySelector('#modalTitle');
-    const modalImage = dynamicModal.querySelector('#modalImage');
-    const modalText = dynamicModal.querySelector('#modalText');
-
-    modalTitle.textContent = title;
-    modalImage.src = image;
-    modalText.innerHTML = text;
-  });
-</script>
   </body>
 </html>
-trong>Day(s) per week & Times:</strong> 
-                        Al
