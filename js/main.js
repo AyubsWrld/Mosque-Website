@@ -1,3 +1,5 @@
+
+
 (function ($) {
     "use strict";
 
@@ -11,7 +13,7 @@
     };
     spinner();
 
-    // Initiate the wowjs // dont remove this or the planet explodes into 300000 pieces 
+    // Initiate the wowjs // dont remove this or the planet explodes into 300000 pieces
     new WOW().init();
 
     // Sticky Navbar
@@ -60,7 +62,7 @@
 
     function iqamah(time, n) {
         let [hours, minutes] = time.split(':').map(Number);
-        minutes += n; 
+        minutes += n;
 
         while (minutes >= 60) {
             minutes -= 60;
@@ -68,7 +70,7 @@
         }
 
         const period = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12 || 12; 
+        hours = hours % 12 || 12;
 
         return `${hours}:${minutes.toString().padStart(2, '0')} ${period}`;
     }
@@ -88,7 +90,7 @@
             .then(data => {
                 const timings = data.data.timings;
                 const prayerNames = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
-                
+
                 let cardsHTML = '';
                 let topBarHTML = '';
                 prayerNames.forEach((prayer, index) => {
@@ -110,11 +112,11 @@
                     `;
                     topBarHTML += `<small class="me-3">${prayer}: ${time12h}</small>`;
                 });
-                
+
                 if (prayerTimesContainer) {
                     prayerTimesContainer.innerHTML = cardsHTML;
                 }
-                
+
                 if (topBarPrayerTimes) {
                     topBarPrayerTimes.innerHTML = topBarHTML;
                 }

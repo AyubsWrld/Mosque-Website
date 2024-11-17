@@ -130,6 +130,7 @@
     </div>
     <!-- Page Header End -->
 
+
     <!-- Contact Start -->
     <div class="container-xxl py-5">
       <div class="container">
@@ -138,13 +139,11 @@
             <h1 class="display-6 mb-5">
               If You Have Any Query, Please Contact Us
             </h1>
-            <p class="mb-4">
-              The contact form is currently inactive. Get a functional and
-              working contact form with Ajax & PHP in a few minutes. Just copy
-              and paste the files, add a little code and you're done.
-            </p>
+            <p class="mb-4"></p>
             
-            <form>
+            <form action="https://formsubmit.co/info@sahabamosque.com" method="POST">
+              <input type="hidden" name="_captcha" value="false">
+              
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="form-floating">
@@ -152,7 +151,9 @@
                       type="text"
                       class="form-control"
                       id="name"
+                      name="name"
                       placeholder="Your Name"
+                      required
                     />
                     <label for="name">Your Name</label>
                   </div>
@@ -163,7 +164,9 @@
                       type="email"
                       class="form-control"
                       id="email"
+                      name="email"
                       placeholder="Your Email"
+                      required
                     />
                     <label for="email">Your Email</label>
                   </div>
@@ -174,7 +177,9 @@
                       type="text"
                       class="form-control"
                       id="subject"
+                      name="subject"
                       placeholder="Subject"
+                      required
                     />
                     <label for="subject">Subject</label>
                   </div>
@@ -185,7 +190,9 @@
                       class="form-control"
                       placeholder="Leave a message here"
                       id="message"
+                      name="message"
                       style="height: 100px"
+                      required
                     ></textarea>
                     <label for="message">Message</label>
                   </div>
@@ -203,6 +210,7 @@
             data-wow-delay="0.5s"
             style="min-height: 450px"
           >
+            <!-- Map -->
             <div class="position-relative rounded overflow-hidden h-100">
               <iframe
                 class="position-relative w-100 h-100"
@@ -293,6 +301,7 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/servo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
