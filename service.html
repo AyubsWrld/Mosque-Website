@@ -160,20 +160,21 @@
 
 
 <!-- Reusable Modal Structure -->
-<div class="modal fade custom-modal" id="dynamicModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="dynamicModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalTitle">Title</h5>
+        <h5 class="modal-title"></h5> <!-- Ensure this class matches the JavaScript -->
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img id="modalImage" src="" alt="Modal Image">
-        <p id="modalText" class="mt-3"></p>
+        <img id="modal-image" src="" alt="Modal Image" class="img-fluid mb-3"> <!-- Use id="modal-image" -->
+        <div id="modal-text"></div> <!-- Use id="modal-text" for dynamic HTML -->
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
@@ -226,19 +227,18 @@
                 Our mosque offers family counseling services to support and strengthen relationships within our community, providing guidance and care for those in need.
               </p>
               <a class="btn btn-light px-3"
-                                      data-bs-toggle="modal"
-                                      data-bs-target="#dynamicModal"
-                                      data-title="Family Counselling"
-                                      data-image="img/fam.webp"
-                                      data-text='
-                                      <p>
-                                      <p><strong>Our counselling services provide guidance and support on marriage, divorce, and other life matters from an Islamic perspective. Conducted by our knowledgeable Imams, these sessions are rooted in the Quran and Sunnah, offering practical and spiritual advice to help individuals and families navigate challenges while strengthening their faith and relationships.
-                                      <p><strong>Coordinator(s):</strong> Abdirazak Said</p>
-                                      <p><strong>Contact Info: 780-243-8811</p>
+                data-bs-toggle="modal"
+                data-bs-target="#dynamicModal"
+                data-title="Family Counselling"
+                data-image="img/fam.webp"
+                data-text='
+                  <p><strong>Our counselling services provide guidance and support on marriage, divorce, and other life matters from an Islamic perspective. Conducted by our knowledgeable Imams, these sessions are rooted in the Quran and Sunnah, offering practical and spiritual advice to help individuals and families navigate challenges while strengthening their faith and relationships.</p>
+                  <p><strong>Coordinator(s):</strong> Abdirazak Said</p>
+                  <p><strong>Contact Info:</strong> 780-243-8811</p>
+                '>
+                Read More
+              </a>
 
-                                      </p>'>
-                                      Read More
-                              </a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -253,13 +253,19 @@
                     alt=""
                   />
                 </div>
-                <h4 class="mb-0">Funeral Services</h4>
-              </div>
-              <p class="mb-4">
-                We are here to support our community by offering comprehensive funeral services to honor your loved ones. 
-                Our compassionate team is dedicated to providing guidance and assistance during this difficult time, ensuring a respectful and dignified farewell.
-              </p>
-              <a class="btn btn-light px-3" href="">Read More</a>
+                <h4 class="mb-0">Mixed Martial Arts (Coming Soon)</h4>
+                  </div>
+                  <p class="mb-4">
+                    Our mosque is excited to announce plans to start a Mixed Martial Arts (MMA) academy at the Sahaba Youth Centre. This initiative aims to provide youth with an opportunity to develop discipline, fitness, and self-defense skills in a positive environment.                  </p>
+                    <a class="btn btn-light px-3" 
+                          data-bs-toggle="modal" 
+                          data-bs-target="#dynamicModal" 
+                          data-title="Mixed Martial Arts" 
+                          data-image="img/karate.webp" 
+                          data-text="In Islam, physical strength and capability, especially through martial arts, are highly valued as they foster discipline, self-defense, and the ability to protect oneself, family, and community, aligning with the prophetic teaching, “The strong believer is better and more beloved to Allah than the weak believer” (Sahih Muslim). FURTHER DETAILS TBD">
+                         
+                          Read More
+                  </a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -274,12 +280,23 @@
                     alt=""
                   />
                 </div>
-                <h4 class="mb-0">Marriage Servies</h4>
-              </div>
-              <p class="mb-4">
-                Our mosque provides wedding and nikkah services, helping couples celebrate their special day in accordance with Islamic traditions and values.
-              </p>
-              <a class="btn btn-light px-3" href="">Read More</a>
+                <h4 class="mb-0">Marriage Services</h4>
+                  </div>
+                  <p class="mb-4">
+                    Our mosque provides wedding and nikkah services, helping couples celebrate their special day in accordance with Islamic traditions and values.                  </p>
+                    <a class="btn btn-light px-3" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#dynamicModal" 
+                      data-title="Marriage Services" 
+                      data-image="img/marriage.webp" 
+                      data-text='
+                          <p><strong>Coordinator(s):</strong> Any Imams of Masjid</p>
+                          <p><strong>Imam(s):</strong> Contact Info: 780-243-8811</p>
+                          <p><strong>Price Details:</strong> $400</p>
+                          <p><strong>Brief Description:</strong> The Islamic Marriage Services at our Masjid provide a comprehensive and faith-based approach to conducting Nikah ceremonies. Led by experienced Imams, the service ensures that all aspects align with Islamic principles, offering guidance and support to couples on their special day.Services include a consultation with the Imam, a personalized Nikah ceremony, and issuance of a marriage certificate.
+                          </p>'>
+                      Read More
+                    </a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -565,25 +582,26 @@
 
       <!-- Bootstrap JS and dependencies -->
 
-    <script>
-    // JavaScript to update the modal content dynamically
-    const dynamicModal = document.getElementById('dynamicModal');
-    dynamicModal.addEventListener('show.bs.modal', function (event) {
-      const button = event.relatedTarget; // Button that triggered the modal
-      const title = button.getAttribute('data-title');
-      const image = button.getAttribute('data-image');
-      const text = button.getAttribute('data-text');
-
-      // Update the modal content
-      const modalTitle = dynamicModal.querySelector('#modalTitle');
-      const modalImage = dynamicModal.querySelector('#modalImage');
-      const modalText = dynamicModal.querySelector('#modalText');
-
-      modalTitle.textContent = title;
-      modalImage.src = image;
-      modalText.innerHTML = text;
-    });
-    </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Select the dynamic modal element
+          const dynamicModal = document.getElementById('dynamicModal');
+      
+          // Listen for when the modal is about to be shown
+          dynamicModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget; // Button that triggered the modal
+            const title = button.getAttribute('data-title'); // Extract the data-title attribute
+            const image = button.getAttribute('data-image'); // Extract the data-image attribute
+            const text = button.getAttribute('data-text');   // Extract the data-text attribute
+      
+            // Update the modal content dynamically
+            dynamicModal.querySelector('.modal-title').textContent = title; // Use .modal-title class
+            dynamicModal.querySelector('#modal-image').src = image;         // Use #modal-image ID
+            dynamicModal.querySelector('#modal-text').innerHTML = text;     // Use #modal-text ID for HTML content
+          });
+        });
+      </script>
+      
 
   </body>
 </html>
