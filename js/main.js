@@ -1,5 +1,3 @@
-
-
 (function ($) {
     "use strict";
 
@@ -13,7 +11,7 @@
     };
     spinner();
 
-    // Initiate the wowjs // dont remove this or the planet explodes into 300000 pieces
+    // Initiate the wowjs 
     new WOW().init();
 
     // Sticky Navbar
@@ -85,7 +83,7 @@
         const prayerTimesContainer = document.getElementById('prayer-times-container');
         const topBarPrayerTimes = document.getElementById('top-bar-prayer-times');
 
-        fetch('http://api.aladhan.com/v1/timingsByCity?city=Edmonton&country=Canada&method=2')
+        fetch('https://api.aladhan.com/v1/timingsByCity?city=Edmonton&country=Canada&method=2')
             .then(response => response.json())
             .then(data => {
                 const timings = data.data.timings;
