@@ -75,7 +75,7 @@
     const imageMap = {
         "Fajr": "img/icon/fajr.png",
         "Dhuhr": "img/icon/dhuhr.png",
-        "Asr": "img/icon/asr.png",
+        "Asr": "img/icon/dhuhr.png",
         "Maghrib": "img/icon/maghreb.png",
         "Isha": "img/icon/isha.png"
     };
