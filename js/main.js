@@ -75,10 +75,12 @@
     const imageMap = {
         "Fajr": "img/icon/fajr.png",
         "Dhuhr": "img/icon/dhuhr.png",
+        "Jummah": "img/icon/dhuhr.png",
         "Asr": "img/icon/dhuhr.png",
         "Maghrib": "img/icon/maghreb.png",
         "Isha": "img/icon/isha.png"
     };
+
     function fetchAndDisplayPrayerTimes() {
         const prayerTimesContainer = document.getElementById('prayer-times-container');
         const topBarPrayerTimes = document.getElementById('top-bar-prayer-times');
@@ -87,27 +89,41 @@
             .then(response => response.json())
             .then(data => {
                 const timings = data.data.timings;
-                const prayerNames = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+                const prayerNames = ['Fajr', 'Dhuhr', 'Jummah', 'Asr', 'Maghrib', 'Isha'];
+                console.log(data); // Print data for debugging
 
                 let cardsHTML = '';
                 let topBarHTML = '';
                 prayerNames.forEach((prayer, index) => {
-                    const time12h = convertTo12HourFormat(timings[prayer]);
-                    const militarytime = timings[prayer];
+                    let time12h = '';
+                    let militarytime = '';
+
+                    if (prayer === 'Jummah') {
+                        // Static Jummah time
+                        time12h = '12:30 PM';
+                        militarytime = '12:00';
+                    } else {
+                        // Regular prayers fetched from the API
+                        time12h = convertTo12HourFormat(timings[prayer]);
+                        militarytime = timings[prayer];
+                    }
+
                     cardsHTML += `
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="${0.1 * (index + 1)}s">
                           <div class="service-item rounded h-100 p-5">
                               <div class="d-flex flex-column align-items-center ms-n5 mb-4">
                                   <div class="service-icon flex-shrink-0 bg-primary rounded mb-4">
-                                      <img class="img-fluid" src=${imageMap[prayer]} alt="" />
+                                      <img class="img-fluid" src=${imageMap[prayer] || "img/icon/default.png"} alt="" />
                                   </div>
                                   <h4 class="mb-0">${prayer}</h4>
                                   <h4 class="mb-0 text-muted" style="opacity: 0.7;">Adhan: ${time12h}</h4>
-                                  <h4 class="mb-0 text-muted" style="opacity: 0.7;">Iqamah: ${prayer === "Maghrib" ? iqamah(militarytime , 5) : iqamah(militarytime , 10)}</h4>
+                                  <h4 class="mb-0 text-muted" style="opacity: 0.7;">Iqamah: ${prayer === 'Maghrib' ? iqamah(militarytime, 5) : prayer === 'Jummah' ? '12:30 PM' : iqamah(militarytime, 10)}</h4>
                               </div>
                           </div>
                         </div>
                     `;
+
+                    // Add Jummah to the top bar along with other prayers
                     topBarHTML += `<small class="me-3">${prayer}: ${time12h}</small>`;
                 });
 
@@ -132,7 +148,6 @@
                 }
             });
     }
-
     // Function to convert 24-hour format to 12-hour format
     function convertTo12HourFormat(time24h) {
         const [hour, minute] = time24h.split(':');
