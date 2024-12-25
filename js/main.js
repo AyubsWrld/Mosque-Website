@@ -83,7 +83,7 @@
 
     function fetchAndDisplayPrayerTimes() {
         const prayerTimesContainer = document.getElementById('prayer-times-container');
-        const topBarPrayerTimes = document.getElementById('top-bar-prayer-times');
+        // const topBarPrayerTimes = document.getElementById('top-bar-prayer-times');
 
         fetch('https://api.aladhan.com/v1/timingsByCity?city=Edmonton&country=Canada&method=2')
             .then(response => response.json())
