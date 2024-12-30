@@ -187,11 +187,11 @@
 }
 /* THIS SECTION HOLDS THE PHOTOS FOR EACH PAGE*/
 .page-header { /* linked to about.html*/
-    background: url(../img/prayer2.jpg) center center no-repeat;
+    background: url(../img/sahab.jpg) center center no-repeat;
     background-size: cover;
 }
 .page-header2 { /* linked to prayer.html*/
-    background: url(../img/Jama-2.jpg) center center no-repeat;
+    background: url(../img/prayer2.jpg) center center no-repeat;
     background-size: cover;
 } 
 
