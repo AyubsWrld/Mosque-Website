@@ -1,4 +1,116 @@
 /********** Template CSS **********/
+
+/* Ensure full width */
+.fundraiser-container {
+    width: 100%;
+    background-color: #d1d5db; /* Gray-300 */
+    padding: 40px 5%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+/* Center content and space elements properly */
+.fundraiser-content {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px; /* Keep a nice layout */
+    width: 100%;
+    gap: 40px;
+}
+
+/* Prevent image from being squished */
+.fundraiser-logo img {
+    width: 250px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain; /* Prevents stretching */
+}
+
+/* Fundraiser info (text section) */
+.fundraiser-info {
+    flex: 1;
+    text-align: left;
+    min-width: 300px;
+}
+
+/* Styling for progress section */
+.fundraiser-progress {
+    background-color: #111827;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 280px;
+}
+
+/* Improve readability */
+.text-blue {
+    color: #2563eb; /* Tailwind blue-500 */
+    font-weight: bold;
+}
+
+.fundraiser-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+.text-highlight {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+/* Button Styling */
+.donate-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    max-width: 300px;
+}
+
+.donate-btn:hover {
+    background-color: #1e40af;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #9333ea, #2563eb);
+    border-radius: 6px;
+}
+
+/* Status Styling */
+.progress-status {
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.donations-count {
+    font-weight: bold;
+}
+
+/** ISLAMIC RELIEF STUFF^^**/
 :root {
     --primary: #015FC9;
     --secondary: #0DD3F1;
