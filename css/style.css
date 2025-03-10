@@ -105,6 +105,10 @@
     font-size: 0.9rem;
     color: #d1d5db;
 }
+.text-progress {
+    color: rgba(255, 255, 255, 0.7); /* 70% opacity white */
+    font-weight: bold;
+}
 
 .donations-count {
     font-weight: bold;
